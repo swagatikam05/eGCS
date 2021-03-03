@@ -1,0 +1,579 @@
+<!--
+    Copyright 2018 trivago N.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    --><!doctype html>
+<html lang="en">
+ <head>
+  <base href="../..">  
+  <meta charset="utf-8"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta name="description" content="Cluecumber Report Plugin version 1.8.0 - Scenario Details"> 
+  <meta name="author" content="Cluecumber Report Plugin version 1.8.0"> 
+  <title>Scenario Details - 2021/03/01 21:37:53</title> 
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> 
+  <link rel="stylesheet" href="css/cluecumber.css" type="text/css"> 
+  <link rel="stylesheet" href="css/cluecumber_custom.css"> 
+  <link rel="stylesheet" href="css/datatables.min.css"> 
+  <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css"> 
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css"> 
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap.min.js"></script> 
+  <script src="js/datatables.min.js"></script> 
+  <script src="js/jquery.fancybox.min.js"></script> 
+  <script src="js/Chart.bundle.min.js"></script> 
+  <script>
+    $(document).ready(function () {
+        // Data tables
+        $('.renderAsDataTable').on('draw.dt', function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        }).DataTable({
+            "oLanguage": {
+                "sSearch": "Search:"
+            },
+            "pageLength": 25
+        });
+
+        $('.collapse').on('shown.bs.collapse', function (e) {
+            $(e.target).find("iframe").each(function (index, iframe) {
+                resizeIframe(iframe);
+            })
+        });
+
+        // Lightbox
+        $("a.grouped_elements").fancybox();
+
+        // Tool tips
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Chart
+        var canvas = document.getElementById('chart-area');
+        var ctx = canvas.getContext("2d");
+        var chart = new Chart(ctx, eval({
+  "data": {
+    "labels": [
+      "Step 1",
+      "Step 2",
+      "Step 3",
+      "Step 4",
+      "Step 5",
+      "Step 6",
+      "After 0",
+      "After 1"
+    ],
+    "datasets": [
+      {
+        "data": [
+          2732,
+          1129,
+          0,
+          385,
+          0,
+          0,
+          1289
+        ],
+        "backgroundColor": [
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)"
+        ],
+        "label": "passed",
+        "stack": "complete"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          129,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)"
+        ],
+        "label": "failed",
+        "stack": "complete"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)"
+        ],
+        "label": "skipped",
+        "stack": "complete"
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "xAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "display": true
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Step(s)"
+          },
+          "stepSize": 0.0
+        }
+      ],
+      "yAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "display": true
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Step Runtime"
+          },
+          "stepSize": 0.0
+        }
+      ]
+    }
+  },
+  "type": "bar"
+}));
+
+        var original;
+        switch (chart.config.type) {
+            case "pie":
+                original = Chart.defaults.pie.legend.onClick;
+                break;
+            default:
+                original = Chart.defaults.global.legend.onClick;
+                break;
+        }
+
+        chart.options.legend.onClick = function (evt, label) {
+            original.call(this, evt, label);
+
+            var card = $("#card_" + label.text);
+            label.hidden ? card.show() : card.hide();
+
+            var row = $(".row_" + label.text);
+            label.hidden ? row.show() : row.hide();
+        };
+
+        if (false) {
+            $(".btn-outline-secondary[data-cluecumber-item='before-after-hooks-button']").click();
+        }
+        if (true) {
+            $(".btn-outline-secondary[data-cluecumber-item='step-hooks-button']").click();
+        }
+        if (false) {
+            $(".btn-outline-secondary[data-cluecumber-item='doc-strings-button']").click();
+        }
+    });
+
+    function resizeIframe(iframe) {
+        iframe.style.height = (iframe.contentWindow.document.body.scrollHeight + 25) + 'px';
+    }
+</script> 
+ </head> 
+ <body> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> 
+   <span class="navbar-brand">Scenario Details</span> 
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto"> 
+     <li class="nav-item"> <a class="nav-link" href="pages/feature-summary.html">All Features</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="pages/tag-summary.html">All Tags</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="pages/step-summary.html">All Steps</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="pages/scenario-sequence.html">Scenario Sequence</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="index.html">All Scenarios</a> </li> 
+    </ul> 
+    <span class="text-light">2021/03/01 21:37:53</span> 
+   </div> 
+  </nav> 
+  <main role="main" class="container"> 
+   <div class="cluecumber-template"> 
+    <div class="pb-2 mt-4 mb-2 border-bottom"> 
+     <h5><a href="pages/feature-scenarios/feature_0.html">It Should allow users to add new computers to the database for searching at a later date</a></h5> 
+     <h3>It should have four new fields and two buttons in the new section</h3> 
+    </div> 
+    <div class="row"> 
+     <div class="col-sm-8  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Scenario Result Chart
+       </div> 
+       <div class="card-body"> 
+        <div id="canvas-holder" class="w-100 text-center" data-cluecumber-item="chart"> 
+         <canvas id="chart-area" class="w-100"></canvas> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-sm-4  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Scenario Information
+       </div> 
+       <div class="card-body"> 
+        <ul class="list-group list-group-flush"> 
+         <li class="list-group-item">6 Step(s)</li> 
+         <li class="list-group-item"> 4 <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 1 <i class="text-danger cluecumber-icon icon-failed" data-toggle="tooltip" title="failed"><span style="display:none">failed</span></i> 1 <i class="text-warning cluecumber-icon icon-skipped" data-toggle="tooltip" title="skipped"><span style="display:none">skipped</span></i> </li> 
+         <li class="list-group-item">Duration: 0m 09s 275ms</li> 
+         <li class="list-group-item"> <a href="pages/tag-scenarios/tag_2020feature.html">@2020feature</a>, <a href="pages/tag-scenarios/tag_core.html">@core</a>, <a href="pages/tag-scenarios/tag_critical.html">@critical</a> </li> 
+        </ul> 
+        <button class="btn btn-outline-secondary btn-block collapsed" type="button" data-toggle="collapse" aria-expanded="true" data-cluecumber-item="before-after-hooks-button" data-target=".scenarioHook">Before/After Hooks </button> 
+        <button class="btn btn-outline-secondary btn-block collapsed" type="button" data-toggle="collapse" aria-expanded="true" data-cluecumber-item="step-hooks-button" data-target=".stepHook">Step Hooks </button> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <ul class="list-group list-group-flush"> 
+     <div class="col-sm-12  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Steps
+       </div> 
+       <div class="card-body"> 
+        <li class="list-group-item"> 
+         <div class="row row_passed"> 
+          <div class="col-1 text-left small">
+           1.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="HomePageSteps.openBrowser()"> <a href="pages/step-scenarios/step_805508489.html">Given I am using a web browser</a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 02s 732ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_passed"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 00s 383ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+           <div class="row w-100 p-3 m-0 scenarioAttachment"> 
+            <div class="w-100 text-left m-auto"> 
+             <a class="grouped_elements" rel="images" href="attachments/attachment012.png"> <img src="attachments/attachment012.png" style="max-width: 100%"> </a> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row row_passed"> 
+          <div class="col-1 text-left small">
+           2.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="HomePageSteps.navigateToHomePage(String)"> <a href="pages/step-scenarios/step_1015061118.html">And I navigate to the computer database app using <strong>"http://computer-database.gatling.io/computers"</strong></a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 01s 129ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_passed"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 01s 493ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+           <div class="row w-100 p-3 m-0 scenarioAttachment"> 
+            <div class="w-100 text-left m-auto"> 
+             <a class="grouped_elements" rel="images" href="attachments/attachment013.png"> <img src="attachments/attachment013.png" style="max-width: 100%"> </a> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row row_passed"> 
+          <div class="col-1 text-left small">
+           3.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="HomePageSteps.i_am_already_on_the_database_application()"> <a href="pages/step-scenarios/step_2140718507.html">Given I am already on the database application</a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 00s 000ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_passed"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 00s 307ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+           <div class="row w-100 p-3 m-0 scenarioAttachment"> 
+            <div class="w-100 text-left m-auto"> 
+             <a class="grouped_elements" rel="images" href="attachments/attachment014.png"> <img src="attachments/attachment014.png" style="max-width: 100%"> </a> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row row_passed"> 
+          <div class="col-1 text-left small">
+           4.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="HomePageSteps.i_click_on_the_link()"> <a href="pages/step-scenarios/step_120484006.html">When I click on the link</a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 00s 385ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_passed"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 01s 109ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+           <div class="row w-100 p-3 m-0 scenarioAttachment"> 
+            <div class="w-100 text-left m-auto"> 
+             <a class="grouped_elements" rel="images" href="attachments/attachment015.png"> <img src="attachments/attachment015.png" style="max-width: 100%"> </a> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row row_failed"> 
+          <div class="col-1 text-left small">
+           5.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(String,String,String,String>)"> <a href="pages/step-scenarios/step_1156294550.html">Then I should see four fields labelled "<strong>
+              <fields></fields></strong>" with a type of "<strong>
+              <type></type></strong>"</a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 00s 129ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-danger cluecumber-icon icon-failed" data-toggle="tooltip" title="failed"><span style="display:none">failed</span></i> 
+          </div> 
+          <div class="row w-100 p-3 m-0 scenarioDataTable"> 
+           <div class="w-100 text-left border border-dark table-responsive"> 
+            <table class="table table-hover small table-striped text-left pb-0"> 
+             <tbody>
+              <tr> 
+               <td>fields</td> 
+               <td>type</td> 
+              </tr> 
+              <tr> 
+               <td>Computer Name</td> 
+               <td>Free input</td> 
+              </tr> 
+              <tr> 
+               <td>Introduced Date</td> 
+               <td>Free input</td> 
+              </tr> 
+              <tr> 
+               <td>Discontinued Date</td> 
+               <td>Free input</td> 
+              </tr> 
+              <tr> 
+               <td>Manufacturer</td> 
+               <td>Free input</td> 
+              </tr> 
+             </tbody>
+            </table> 
+           </div> 
+          </div> 
+          <div class="row w-100 p-3 m-0 scenarioErrorMessage"> 
+           <div class="w-100 text-left border border-danger"> 
+            <pre class="text-danger small p-2">java.lang.AssertionError: expected [Computer Name] but found [Computer name]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at applicationPages.AddComputerPage.verifyElementPresentAndClickable(AddComputerPage.java:54)
+	at stepdefs.AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(AddComputerSteps.java:44)
+	at ✽.I should see four fields labelled "&lt;fields&gt;" with a type of "&lt;type&gt;"(<a href="file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:25)" target="_blank">file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:25)</a>
+</pre> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_passed"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 00s 314ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+           <div class="row w-100 p-3 m-0 scenarioAttachment"> 
+            <div class="w-100 text-left m-auto"> 
+             <a class="grouped_elements" rel="images" href="attachments/attachment016.png"> <img src="attachments/attachment016.png" style="max-width: 100%"> </a> 
+            </div> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="row row_skipped"> 
+          <div class="col-1 text-left small">
+           6.
+          </div> 
+          <div class="col-8 text-left"> 
+           <span data-toggle="tooltip" title="AddComputerSteps.i_should_see_two_buttons_named_something(String,String>)"> <a href="pages/step-scenarios/step_624510930.html">And I should see two buttons named "<strong>
+              <buttons></buttons></strong>"</a> </span> 
+          </div> 
+          <div class="col-2 text-left small">
+            0m 00s 000ms 
+          </div> 
+          <div class="col-1 text-right"> 
+           <i class="text-warning cluecumber-icon icon-skipped" data-toggle="tooltip" title="skipped"><span style="display:none">skipped</span></i> 
+          </div> 
+          <div class="row w-100 p-3 m-0 scenarioDataTable"> 
+           <div class="w-100 text-left border border-dark table-responsive"> 
+            <table class="table table-hover small table-striped text-left pb-0"> 
+             <tbody>
+              <tr> 
+               <td>Add Computer</td> 
+              </tr> 
+              <tr> 
+               <td>Cancel</td> 
+              </tr> 
+             </tbody>
+            </table> 
+           </div> 
+          </div> 
+         </div> 
+         <div class="stepHook collapse"> 
+          <div class="row row_skipped"> 
+           <div class="col-1"></div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.afterStep(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small"> 
+            <nobr>
+             0m 00s 000ms
+            </nobr> 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-warning cluecumber-icon icon-skipped" data-toggle="tooltip" title="skipped"><span style="display:none">skipped</span></i> 
+           </div> 
+          </div> 
+         </div> </li> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="scenarioHook collapse"> 
+      <div class="col-sm-12  h-auto" data-cluecumber-item="card"> 
+       <div class="card h-100"> 
+        <div class="card-header">
+         After Hooks
+        </div> 
+        <div class="card-body"> 
+         <li class="list-group-item"> 
+          <div class="row row_passed"> 
+           <div class="col-1 text-left small">
+            1.
+           </div> 
+           <div class="col-8 text-left"> 
+            <i>HomePageSteps.after(Scenario)</i> 
+           </div> 
+           <div class="col-2 text-left small">
+             0m 01s 289ms 
+           </div> 
+           <div class="col-1 text-right"> 
+            <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 
+           </div> 
+          </div> </li> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </ul> 
+   </div> 
+  </main> 
+  <footer class="footer navbar-dark bg-dark"> 
+   <div class="container-fluid"> 
+    <span>Cluecumber Report Plugin version 1.8.0 - Report generated on 2021/03/01 21:37:53.</span> 
+   </div> 
+  </footer>   
+ </body>
+</html>

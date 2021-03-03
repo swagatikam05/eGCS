@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="7">Surefire suite</th></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">2</td><td class="num">0</td><td class="num attn">4</td><td class="num">88,985</td><td></td><td></td></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="3">runner.AddComputerRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="3">1614634575431</td><td rowspan="3">28239</td></tr><tr class="failedeven"><td><a href="#m1">runScenario</a></td></tr><tr class="failedeven"><td><a href="#m2">runScenario</a></td></tr><tr class="failedodd"><td rowspan="1">runner.HomePageRunner</td><td><a href="#m3">runScenario</a></td><td rowspan="1">1614634654205</td><td rowspan="1">9552</td></tr><tr><th colspan="4">Surefire test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="2">runner.AddComputerRunner</td><td><a href="#m4">runScenario</a></td><td rowspan="2">1614634629685</td><td rowspan="2">11471</td></tr><tr class="passedeven"><td><a href="#m5">runScenario</a></td></tr></tbody>
+</table>
+<h2>Surefire test</h2><h3 id="m0">runner.AddComputerRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;There should be a link to the new section that allows users to add computers to the database&quot;</td><td>&quot;It Should allow users to add new computers to the database for searching at a later date&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: expected [Add a New Computer] but found [Add a new computer]
+	at applicationPages.Homepage.verifyAddNewButtonPresentWithText(Homepage.java:43)
+	at stepdefs.HomePageSteps.i_should_see_a_new_button_called_something(HomePageSteps.java:46)
+	at ✽.I should see a new button called &quot;Add a New Computer&quot;(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:13)
+... Removed 6 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">runner.AddComputerRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;It should have four new fields and two buttons in the new section&quot;</td><td>&quot;It Should allow users to add new computers to the database for searching at a later date&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: expected [Computer Name] but found [Computer name]
+	at applicationPages.AddComputerPage.verifyElementPresentAndClickable(AddComputerPage.java:54)
+	at stepdefs.AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(AddComputerSteps.java:44)
+	at ✽.I should see four fields labelled &quot;&lt;fields&gt;&quot; with a type of &quot;&lt;type&gt;&quot;(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:25)
+... Removed 6 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">runner.AddComputerRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;It should be possible to open the new section&quot;</td><td>&quot;It Should allow users to add new computers to the database for searching at a later date&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: expected [Add a New Computer] but found [Add a computer]
+	at applicationPages.AddComputerPage.verifyPageTitle(AddComputerPage.java:19)
+	at stepdefs.AddComputerSteps.the_new_section_should_have_a_heading_of_something(AddComputerSteps.java:27)
+	at ✽.The new section should have a heading of &quot;Add a New Computer&quot;(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:20)
+... Removed 6 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">runner.HomePageRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Access the application by opening a browser&quot;</td><td>&quot;Home Page Verifications&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.AssertionError: expected [Play sample application — Computer database] but found [Computer database]
+	at applicationPages.Homepage.verifyPageTitle(Homepage.java:34)
+	at stepdefs.HomePageSteps.checkPageTitle(HomePageSteps.java:41)
+	at ✽.I should see a title &quot;Play sample application — Computer database&quot;(file:src/test/resources/features/HomePage/01_HomeScreen.feature:9)
+... Removed 6 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">runner.AddComputerRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;It should not allow new computers to be added unless all fields are populated&quot;</td><td>&quot;It Should allow users to add new computers to the database for searching at a later date&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">runner.AddComputerRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;It Should allow me to cancel the operation&quot;</td><td>&quot;It Should allow users to add new computers to the database for searching at a later date&quot;</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

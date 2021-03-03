@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testng-results failed="1" passed="0" skipped="0" total="1">
+<suite duration-ms="9466" name="cucumber.runtime.formatter.TestNGFormatter">
+<test duration-ms="9466" name="cucumber.runtime.formatter.TestNGFormatter">
+<class name="Home Page Verifications">
+<test-method duration-ms="9466" finished-at="2021-03-01T21:37:43Z" name="Access the application by opening a browser" started-at="2021-03-01T21:37:43Z" status="FAIL">
+<exception class="java.lang.AssertionError">
+<message><![CDATA[Given I am using a web browser..............................................passed
+When I navigate to the computer database app using "http://computer-database.gatling.io/computers".passed
+Then I should see a title "Play sample application — Computer database".....failed
+]]></message>
+<full-stacktrace><![CDATA[java.lang.AssertionError: expected [Play sample application — Computer database] but found [Computer database]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at applicationPages.Homepage.verifyPageTitle(Homepage.java:34)
+	at stepdefs.HomePageSteps.checkPageTitle(HomePageSteps.java:41)
+	at ✽.I should see a title "Play sample application — Computer database"(file:src/test/resources/features/HomePage/01_HomeScreen.feature:9)
+]]></full-stacktrace>
+</exception>
+</test-method>
+</class>
+</test>
+</suite>
+</testng-results>

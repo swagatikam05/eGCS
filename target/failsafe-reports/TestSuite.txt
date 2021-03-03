@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 92.176 s <<< FAILURE! - in TestSuite
+runScenario(runner.AddComputerRunner)  Time elapsed: 28.249 s  <<< FAILURE!
+java.lang.AssertionError: expected [Add a New Computer] but found [Add a new computer]
+
+runScenario(runner.AddComputerRunner)  Time elapsed: 16.721 s  <<< FAILURE!
+java.lang.AssertionError: expected [Add a New Computer] but found [Add a computer]
+
+runScenario(runner.AddComputerRunner)  Time elapsed: 9.28 s  <<< FAILURE!
+java.lang.AssertionError: expected [Computer Name] but found [Computer name]
+
+runScenario(runner.HomePageRunner)  Time elapsed: 9.552 s  <<< FAILURE!
+java.lang.AssertionError: expected [Play sample application — Computer database] but found [Computer database]
+

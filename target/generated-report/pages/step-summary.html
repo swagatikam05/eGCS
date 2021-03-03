@@ -1,0 +1,601 @@
+<!--
+    Copyright 2018 trivago N.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    --><!doctype html>
+<html lang="en">
+ <head>
+  <base href="..">  
+  <meta charset="utf-8"> 
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+  <meta name="description" content="Cluecumber Report Plugin version 1.8.0 - Step Summary"> 
+  <meta name="author" content="Cluecumber Report Plugin version 1.8.0"> 
+  <title>Step Summary - 2021/03/01 21:37:54</title> 
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> 
+  <link rel="stylesheet" href="css/cluecumber.css" type="text/css"> 
+  <link rel="stylesheet" href="css/cluecumber_custom.css"> 
+  <link rel="stylesheet" href="css/datatables.min.css"> 
+  <link rel="stylesheet" href="css/dataTables.bootstrap4.min.css"> 
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css"> 
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/popper.min.js"></script> 
+  <script src="js/bootstrap.min.js"></script> 
+  <script src="js/datatables.min.js"></script> 
+  <script src="js/jquery.fancybox.min.js"></script> 
+  <script src="js/Chart.bundle.min.js"></script> 
+  <script>
+    $(document).ready(function () {
+        // Data tables
+        $('.renderAsDataTable').on('draw.dt', function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        }).DataTable({
+            "oLanguage": {
+                "sSearch": "Search:"
+            },
+            "pageLength": 25
+        });
+
+        $('.collapse').on('shown.bs.collapse', function (e) {
+            $(e.target).find("iframe").each(function (index, iframe) {
+                resizeIframe(iframe);
+            })
+        });
+
+        // Lightbox
+        $("a.grouped_elements").fancybox();
+
+        // Tool tips
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Chart
+        var canvas = document.getElementById('chart-area');
+        var ctx = canvas.getContext("2d");
+        var chart = new Chart(ctx, eval({
+  "data": {
+    "labels": [
+      "I am already adding a computer in the Add a New Computer view",
+      "I need to stop what I am doing and go back to the main view",
+      "I click on the link",
+      "I am already entering a new computer into the system",
+      "I am using a web browser",
+      "I should see a new button called {}",
+      "The new section should have a heading of {}",
+      "I should see two buttons named \"{}\"",
+      "Have not entered data into other fields",
+      "It should take me back to the main computer database view",
+      "It should not allow you to save",
+      "I click cancel",
+      "I should see a title {}",
+      "It should indicate which fields are mandatory",
+      "I am already on the database application",
+      "the link to the new section is present",
+      "I should be taken to the new section to update the database",
+      "I have already entered a name for a computer",
+      "I click {}",
+      "I should see four fields labelled \"{}\" with a type of \"{}\"",
+      "I navigate to the computer database app using {}"
+    ],
+    "datasets": [
+      {
+        "data": [
+          1,
+          1,
+          2,
+          1,
+          2,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          1,
+          2,
+          0,
+          0,
+          1,
+          1,
+          0,
+          2
+        ],
+        "backgroundColor": [
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)",
+          "rgba(40, 167, 69, 1.000)"
+        ],
+        "label": "passed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          2,
+          0,
+          4,
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          3,
+          1,
+          1,
+          0,
+          0,
+          1,
+          4
+        ],
+        "backgroundColor": [
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)",
+          "rgba(220, 53, 69, 1.000)"
+        ],
+        "label": "failed"
+      },
+      {
+        "data": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "backgroundColor": [
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)",
+          "rgba(255, 193, 7, 1.000)"
+        ],
+        "label": "skipped"
+      }
+    ]
+  },
+  "options": {
+    "scales": {
+      "xAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "display": false
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "21 Step(s)"
+          },
+          "stepSize": 0.0
+        }
+      ],
+      "yAxes": [
+        {
+          "ticks": {
+            "min": 0,
+            "display": true
+          },
+          "stacked": true,
+          "scaleLabel": {
+            "display": true,
+            "labelString": "Number of Scenarios"
+          },
+          "stepSize": 6.0
+        }
+      ]
+    }
+  },
+  "type": "bar"
+}));
+
+        var original;
+        switch (chart.config.type) {
+            case "pie":
+                original = Chart.defaults.pie.legend.onClick;
+                break;
+            default:
+                original = Chart.defaults.global.legend.onClick;
+                break;
+        }
+
+        chart.options.legend.onClick = function (evt, label) {
+            original.call(this, evt, label);
+
+            var card = $("#card_" + label.text);
+            label.hidden ? card.show() : card.hide();
+
+            var row = $(".row_" + label.text);
+            label.hidden ? row.show() : row.hide();
+        };
+
+        if (false) {
+            $(".btn-outline-secondary[data-cluecumber-item='before-after-hooks-button']").click();
+        }
+        if (false) {
+            $(".btn-outline-secondary[data-cluecumber-item='step-hooks-button']").click();
+        }
+        if (false) {
+            $(".btn-outline-secondary[data-cluecumber-item='doc-strings-button']").click();
+        }
+    });
+
+    function resizeIframe(iframe) {
+        iframe.style.height = (iframe.contentWindow.document.body.scrollHeight + 25) + 'px';
+    }
+</script> 
+ </head> 
+ <body> 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> 
+   <span class="navbar-brand">Step Summary</span> 
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> 
+   <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+    <ul class="navbar-nav mr-auto"> 
+     <li class="nav-item"> <a class="nav-link" href="pages/feature-summary.html">All Features</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="pages/tag-summary.html">All Tags</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="pages/scenario-sequence.html">Scenario Sequence</a> </li> 
+     <li class="nav-item"> <a class="nav-link" href="index.html">All Scenarios</a> </li> 
+    </ul> 
+    <span class="text-light">2021/03/01 21:37:54</span> 
+   </div> 
+  </nav> 
+  <main role="main" class="container"> 
+   <div class="cluecumber-template"> 
+    <div class="pb-2 mt-4 mb-2 border-bottom"> 
+     <h3>All Steps</h3> 
+    </div> 
+    <div class="row"> 
+     <div class="col-sm-8  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Step Summary Result Chart
+       </div> 
+       <div class="card-body"> 
+        <div id="canvas-holder" class="w-100 text-center" data-cluecumber-item="chart"> 
+         <canvas id="chart-area" class="w-100"></canvas> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+     <div class="col-sm-4  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Steps Summary
+       </div> 
+       <div class="card-body"> 
+        <ul class="list-group list-group-flush" data-cluecumber-item="step-summary"> 
+         <li class="list-group-item">21 Step(s) in<br> 6 Scenario(s) </li> 
+        </ul> 
+        <li class="list-group-item"> 2 <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> 4 <i class="text-danger cluecumber-icon icon-failed" data-toggle="tooltip" title="failed"><span style="display:none">failed</span></i> 0 <i class="text-warning cluecumber-icon icon-skipped" data-toggle="tooltip" title="skipped"><span style="display:none">skipped</span></i> </li> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+    <div class="row"> 
+     <div class="col-sm-12  h-auto" data-cluecumber-item="card"> 
+      <div class="card h-100"> 
+       <div class="card-header">
+        Available Steps
+       </div> 
+       <div class="card-body"> 
+        <table id="step_summary" class="table table-hover renderAsDataTable" data-cluecumber-item="step-summary-table"> 
+         <thead> 
+          <tr> 
+           <th>Step</th> 
+           <th>Total</th> 
+           <th> <i class="text-success cluecumber-icon icon-passed" data-toggle="tooltip" title="passed"><span style="display:none">passed</span></i> </th> 
+           <th> <i class="text-danger cluecumber-icon icon-failed" data-toggle="tooltip" title="failed"><span style="display:none">failed</span></i> </th> 
+           <th> <i class="text-warning cluecumber-icon icon-skipped" data-toggle="tooltip" title="skipped"><span style="display:none">skipped</span></i> </th> 
+           <th>Min Time</th> 
+           <th>Max Time</th> 
+           <th>Ø Time</th> 
+          </tr> 
+         </thead> 
+         <tbody> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_am_already_adding_a_computer_in_the_add_a_new_computer_view()"> <a href="pages/step-scenarios/step_01328851441.html">I am already adding a computer in the Add a New Computer view</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 150ms</td> 
+           <td class="text-right small">0m 00s 150ms</td> 
+           <td class="text-right small">0m 00s 150ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_need_to_stop_what_i_am_doing_and_go_back_to_the_main_view()"> <a href="pages/step-scenarios/step_1058267957.html">I need to stop what I am doing and go back to the main view</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.i_click_on_the_link()"> <a href="pages/step-scenarios/step_120484006.html">I click on the link</a> </span> </td> 
+           <td class="text-right"><strong>4</strong></td> 
+           <td class="text-right">2</td> 
+           <td class="text-right">2</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 385ms</td> 
+           <td class="text-right small">0m 01s 570ms</td> 
+           <td class="text-right small">0m 00s 717ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_am_already_entering_a_new_computer_into_the_system()"> <a href="pages/step-scenarios/step_01652543159.html">I am already entering a new computer into the system</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 692ms</td> 
+           <td class="text-right small">0m 00s 692ms</td> 
+           <td class="text-right small">0m 00s 692ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.openBrowser()"> <a href="pages/step-scenarios/step_805508489.html">I am using a web browser</a> </span> </td> 
+           <td class="text-right"><strong>6</strong></td> 
+           <td class="text-right">2</td> 
+           <td class="text-right">4</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 02s 723ms</td> 
+           <td class="text-right small">0m 22s 137ms</td> 
+           <td class="text-right small">0m 06s 508ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.i_should_see_a_new_button_called_something(String)"> <a href="pages/step-scenarios/step_1268829002.html">I should see a new button called {}</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 093ms</td> 
+           <td class="text-right small">0m 00s 093ms</td> 
+           <td class="text-right small">0m 00s 093ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.the_new_section_should_have_a_heading_of_something(String)"> <a href="pages/step-scenarios/step_282739121.html">The new section should have a heading of {}</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 098ms</td> 
+           <td class="text-right small">0m 00s 098ms</td> 
+           <td class="text-right small">0m 00s 098ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_should_see_two_buttons_named_something(String,String>)"> <a href="pages/step-scenarios/step_624510930.html">I should see two buttons named "{}"</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.have_not_entered_data_into_other_fields()"> <a href="pages/step-scenarios/step_02112391334.html">Have not entered data into other fields</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.it_should_take_me_back_to_the_main_computer_database_view()"> <a href="pages/step-scenarios/step_694867687.html">It should take me back to the main computer database view</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 015ms</td> 
+           <td class="text-right small">0m 00s 015ms</td> 
+           <td class="text-right small">0m 00s 015ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.it_should_not_allow_you_to_save()"> <a href="pages/step-scenarios/step_0909418684.html">It should not allow you to save</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 047ms</td> 
+           <td class="text-right small">0m 00s 047ms</td> 
+           <td class="text-right small">0m 00s 047ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_click_cancel()"> <a href="pages/step-scenarios/step_1614511690.html">I click cancel</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 369ms</td> 
+           <td class="text-right small">0m 00s 369ms</td> 
+           <td class="text-right small">0m 00s 369ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.checkPageTitle(String)"> <a href="pages/step-scenarios/step_0233560347.html">I should see a title {}</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 040ms</td> 
+           <td class="text-right small">0m 00s 040ms</td> 
+           <td class="text-right small">0m 00s 040ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.it_should_indicate_which_fields_are_mandatory()"> <a href="pages/step-scenarios/step_768037077.html">It should indicate which fields are mandatory</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.i_am_already_on_the_database_application()"> <a href="pages/step-scenarios/step_2140718507.html">I am already on the database application</a> </span> </td> 
+           <td class="text-right"><strong>5</strong></td> 
+           <td class="text-right">2</td> 
+           <td class="text-right">3</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.the_link_to_the_new_section_is_present()"> <a href="pages/step-scenarios/step_2006751087.html">the link to the new section is present</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 894ms</td> 
+           <td class="text-right small">0m 00s 894ms</td> 
+           <td class="text-right small">0m 00s 894ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_should_be_taken_to_the_new_section_to_update_the_database()"> <a href="pages/step-scenarios/step_01418684955.html">I should be taken to the new section to update the database</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+           <td class="text-right small">0m 00s 000ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_have_already_entered_a_name_for_a_computer()"> <a href="pages/step-scenarios/step_1741602232.html">I have already entered a name for a computer</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 086ms</td> 
+           <td class="text-right small">0m 00s 086ms</td> 
+           <td class="text-right small">0m 00s 086ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_click_add_this_computer(String)"> <a href="pages/step-scenarios/step_0632982435.html">I click {}</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 307ms</td> 
+           <td class="text-right small">0m 00s 307ms</td> 
+           <td class="text-right small">0m 00s 307ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(String,String,String,String>)"> <a href="pages/step-scenarios/step_1156294550.html">I should see four fields labelled "{}" with a type of "{}"</a> </span> </td> 
+           <td class="text-right"><strong>1</strong></td> 
+           <td class="text-right">0</td> 
+           <td class="text-right">1</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 00s 129ms</td> 
+           <td class="text-right small">0m 00s 129ms</td> 
+           <td class="text-right small">0m 00s 129ms</td> 
+          </tr> 
+          <tr> 
+           <td class="text-left"> <span data-toggle="tooltip" title="HomePageSteps.navigateToHomePage(String)"> <a href="pages/step-scenarios/step_1015061118.html">I navigate to the computer database app using {}</a> </span> </td> 
+           <td class="text-right"><strong>6</strong></td> 
+           <td class="text-right">2</td> 
+           <td class="text-right">4</td> 
+           <td class="text-right">0</td> 
+           <td class="text-right small">0m 01s 086ms</td> 
+           <td class="text-right small">0m 04s 078ms</td> 
+           <td class="text-right small">0m 01s 931ms</td> 
+          </tr> 
+         </tbody> 
+        </table> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </main> 
+  <footer class="footer navbar-dark bg-dark"> 
+   <div class="container-fluid"> 
+    <span>Cluecumber Report Plugin version 1.8.0 - Report generated on 2021/03/01 21:37:54.</span> 
+   </div> 
+  </footer>   
+ </body>
+</html>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testng-results failed="3" passed="2" skipped="0" total="5">
+<suite duration-ms="76264" name="cucumber.runtime.formatter.TestNGFormatter">
+<test duration-ms="76264" name="cucumber.runtime.formatter.TestNGFormatter">
+<class name="It Should allow users to add new computers to the database for searching at a later date">
+<test-method duration-ms="27640" finished-at="2021-03-01T21:37:32Z" name="There should be a link to the new section that allows users to add computers to the database" started-at="2021-03-01T21:37:32Z" status="FAIL">
+<exception class="java.lang.AssertionError">
+<message><![CDATA[Given I am using a web browser..............................................passed
+And I navigate to the computer database app using "http://computer-database.gatling.io/computers".passed
+Given I am already on the database application..............................passed
+Then I should see a new button called "Add a New Computer"..................failed
+]]></message>
+<full-stacktrace><![CDATA[java.lang.AssertionError: expected [Add a New Computer] but found [Add a new computer]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at applicationPages.Homepage.verifyAddNewButtonPresentWithText(Homepage.java:43)
+	at stepdefs.HomePageSteps.i_should_see_a_new_button_called_something(HomePageSteps.java:46)
+	at ✽.I should see a new button called "Add a New Computer"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:13)
+]]></full-stacktrace>
+</exception>
+</test-method>
+<test-method duration-ms="16719" finished-at="2021-03-01T21:37:32Z" name="It should be possible to open the new section" started-at="2021-03-01T21:37:32Z" status="FAIL">
+<exception class="java.lang.AssertionError">
+<message><![CDATA[Given I am using a web browser..............................................passed
+And I navigate to the computer database app using "http://computer-database.gatling.io/computers".passed
+Given I am already on the database application..............................passed
+And the link to the new section is present..................................passed
+When I click on the link....................................................passed
+Then I should be taken to the new section to update the database............passed
+And The new section should have a heading of "Add a New Computer"...........failed
+]]></message>
+<full-stacktrace><![CDATA[java.lang.AssertionError: expected [Add a New Computer] but found [Add a computer]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at applicationPages.AddComputerPage.verifyPageTitle(AddComputerPage.java:19)
+	at stepdefs.AddComputerSteps.the_new_section_should_have_a_heading_of_something(AddComputerSteps.java:27)
+	at ✽.The new section should have a heading of "Add a New Computer"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:20)
+]]></full-stacktrace>
+</exception>
+</test-method>
+<test-method duration-ms="9275" finished-at="2021-03-01T21:37:32Z" name="It should have four new fields and two buttons in the new section" started-at="2021-03-01T21:37:32Z" status="FAIL">
+<exception class="java.lang.AssertionError">
+<message><![CDATA[Given I am using a web browser..............................................passed
+And I navigate to the computer database app using "http://computer-database.gatling.io/computers".passed
+Given I am already on the database application..............................passed
+When I click on the link....................................................passed
+Then I should see four fields labelled "<fields>" with a type of "<type>"...failed
+And I should see two buttons named "<buttons>"..............................skipped
+]]></message>
+<full-stacktrace><![CDATA[java.lang.AssertionError: expected [Computer Name] but found [Computer name]
+	at org.testng.Assert.fail(Assert.java:96)
+	at org.testng.Assert.failNotEquals(Assert.java:776)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:453)
+	at org.testng.Assert.assertEquals(Assert.java:463)
+	at applicationPages.AddComputerPage.verifyElementPresentAndClickable(AddComputerPage.java:54)
+	at stepdefs.AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(AddComputerSteps.java:44)
+	at ✽.I should see four fields labelled "<fields>" with a type of "<type>"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:25)
+]]></full-stacktrace>
+</exception>
+</test-method>
+<test-method duration-ms="11467" finished-at="2021-03-01T21:37:32Z" name="It should not allow new computers to be added unless all fields are populated" started-at="2021-03-01T21:37:32Z" status="PASS"/>
+<test-method duration-ms="11163" finished-at="2021-03-01T21:37:32Z" name="It Should allow me to cancel the operation" started-at="2021-03-01T21:37:32Z" status="PASS"/>
+</class>
+</test>
+</suite>
+</testng-results>

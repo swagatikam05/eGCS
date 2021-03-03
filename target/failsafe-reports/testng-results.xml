@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="4" ignored="0" total="6" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Surefire suite" duration-ms="88985" started-at="2021-03-01T21:36:14Z" finished-at="2021-03-01T21:37:43Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.HomePageRunner@32d992b2]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="Surefire test" duration-ms="88985" started-at="2021-03-01T21:36:14Z" finished-at="2021-03-01T21:37:43Z">
+      <class name="runner.AddComputerRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.AddComputerRunner@1810399e]" name="setUpClass" is-config="true" duration-ms="404" started-at="2021-03-01T21:36:14Z" finished-at="2021-03-01T21:36:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" duration-ms="28239" started-at="2021-03-01T21:36:15Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:36:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["There should be a link to the new section that allows users to add computers to the database"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["It Should allow users to add new computers to the database for searching at a later date"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Add a New Computer] but found [Add a new computer]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Add a New Computer] but found [Add a new computer]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at applicationPages.Homepage.verifyAddNewButtonPresentWithText(Homepage.java:43)
+at stepdefs.HomePageSteps.i_should_see_a_new_button_called_something(HomePageSteps.java:46)
+at ✽.I should see a new button called "Add a New Computer"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" duration-ms="16723" started-at="2021-03-01T21:36:43Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:37:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["It should be possible to open the new section"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["It Should allow users to add new computers to the database for searching at a later date"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Add a New Computer] but found [Add a computer]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Add a New Computer] but found [Add a computer]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at applicationPages.AddComputerPage.verifyPageTitle(AddComputerPage.java:19)
+at stepdefs.AddComputerSteps.the_new_section_should_have_a_heading_of_something(AddComputerSteps.java:27)
+at ✽.The new section should have a heading of "Add a New Computer"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:20)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" duration-ms="9279" started-at="2021-03-01T21:37:00Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:37:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["It should have four new fields and two buttons in the new section"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["It Should allow users to add new computers to the database for searching at a later date"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Computer Name] but found [Computer name]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Computer Name] but found [Computer name]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at applicationPages.AddComputerPage.verifyElementPresentAndClickable(AddComputerPage.java:54)
+at stepdefs.AddComputerSteps.i_should_see_four_fields_labelledsomething_with_a_type_of_something(AddComputerSteps.java:44)
+at ✽.I should see four fields labelled "<fields>" with a type of "<type>"(file:src/test/resources/features/ComputerGrid/01_New_Computers.feature:25)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" duration-ms="11471" started-at="2021-03-01T21:37:09Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:37:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["It should not allow new computers to be added unless all fields are populated"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["It Should allow users to add new computers to the database for searching at a later date"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.AddComputerRunner@1810399e]" name="runScenario" duration-ms="11166" started-at="2021-03-01T21:37:21Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:37:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["It Should allow me to cancel the operation"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["It Should allow users to add new computers to the database for searching at a later date"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.AddComputerRunner@1810399e]" name="tearDownClass" is-config="true" duration-ms="1846" started-at="2021-03-01T21:37:32Z" finished-at="2021-03-01T21:37:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.AddComputerRunner -->
+      <class name="runner.HomePageRunner">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:runner.HomePageRunner@32d992b2]" name="setUpClass" is-config="true" duration-ms="6" started-at="2021-03-01T21:37:34Z" finished-at="2021-03-01T21:37:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="FAIL" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:runner.HomePageRunner@32d992b2]" name="runScenario" duration-ms="9552" started-at="2021-03-01T21:37:34Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2021-03-01T21:37:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Access the application by opening a browser"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Home Page Verifications"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [Play sample application — Computer database] but found [Computer database]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [Play sample application — Computer database] but found [Computer database]
+at org.testng.Assert.fail(Assert.java:96)
+at org.testng.Assert.failNotEquals(Assert.java:776)
+at org.testng.Assert.assertEqualsImpl(Assert.java:137)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:453)
+at org.testng.Assert.assertEquals(Assert.java:463)
+at applicationPages.Homepage.verifyPageTitle(Homepage.java:34)
+at stepdefs.HomePageSteps.checkPageTitle(HomePageSteps.java:41)
+at ✽.I should see a title "Play sample application — Computer database"(file:src/test/resources/features/HomePage/01_HomeScreen.feature:9)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:runner.HomePageRunner@32d992b2]" name="tearDownClass" is-config="true" duration-ms="70" started-at="2021-03-01T21:37:43Z" finished-at="2021-03-01T21:37:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.HomePageRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
